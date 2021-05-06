@@ -40,3 +40,53 @@ Migrating to CreateComments (20210506025004)
   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2021-05-06 16:46:40 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.6.1/gems/railties-6.1.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.6.1/gems/railties-6.1.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.6ms | Allocations: 477)
+Completed 200 OK in 33ms (Views: 17.1ms | ActiveRecord: 0.0ms | Allocations: 4121)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2021-05-06 16:46:41 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "img_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "First post"], ["description", "some description"], ["img_url", "some url"], ["created_at", "2021-05-06 21:52:21.870136"], ["updated_at", "2021-05-06 21:52:21.870136"]]
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "img_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Second Post"], ["description", "more descriptions"], ["img_url", "some url"], ["created_at", "2021-05-06 21:58:20.799024"], ["updated_at", "2021-05-06 21:58:20.799024"]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "img_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Third Post"], ["description", "more descriptions"], ["img_url", "some url"], ["created_at", "2021-05-06 21:58:20.808308"], ["updated_at", "2021-05-06 21:58:20.808308"]]
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "img_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Fourth Post"], ["description", "more descriptions"], ["img_url", "some url"], ["created_at", "2021-05-06 21:58:20.821054"], ["updated_at", "2021-05-06 21:58:20.821054"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "img_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Fifth Post"], ["description", "more descriptions"], ["img_url", "some url"], ["created_at", "2021-05-06 21:58:20.829224"], ["updated_at", "2021-05-06 21:58:20.829224"]]
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "img_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Sixth Post"], ["description", "more descriptions"], ["img_url", "some url"], ["created_at", "2021-05-06 21:58:20.838636"], ["updated_at", "2021-05-06 21:58:20.838636"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "img_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Seventh Post"], ["description", "more descriptions"], ["img_url", "some url"], ["created_at", "2021-05-06 21:58:20.848267"], ["updated_at", "2021-05-06 21:58:20.848267"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/posts" for 127.0.0.1 at 2021-05-06 17:04:09 -0500
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+Completed 200 OK in 21ms (Views: 9.0ms | ActiveRecord: 1.2ms | Allocations: 8772)
+
+
