@@ -12,3 +12,8 @@ Post.create(title: "Fourth Post", description: "more descriptions", img_url: "so
 Post.create(title: "Fifth Post", description: "more descriptions", img_url: "some url")
 Post.create(title: "Sixth Post", description: "more descriptions", img_url: "some url")
 Post.create(title: "Seventh Post", description: "more descriptions", img_url: "some url")
+
+Comment.create(content: "This post is pretty good", post_id: 1)
+Comment.create(content: "I agree, this posts is amazing", post_id: 1)
+
+Comment.create(content: "Let's go! I love this post", post_id: 2)
