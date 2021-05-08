@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
 
     def create
+        byebug
         post = Post.new(post_params)
         if post.save
             render json: post

@@ -8,9 +8,14 @@ function fetchPosts() {
 function appendPosts(posts) {
     for (let post of posts) {
         const li = document.createElement("li")
-        li.innerText = post.title + " " + post.id
+        li.innerText = post.title + " "
+        li.id = post.id
+        const button = document.createElement("button")
+        button.setAttribute("class", "commentButton")
+        button.innerHTML = "Add Comment"
+        button.addEventListener('click', commentForm)
+        li.append(button)
         postsDiv.append(li)
-        // appendPost(post)
         appendComments(post.comments, li)
         
     }
