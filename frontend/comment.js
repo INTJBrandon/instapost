@@ -35,30 +35,49 @@ function createComment(e) {
 function appendComment(comment, id){
     const parentId = id.toString()
     const parent = document.getElementById(parentId).children[1]
+    const form = document.querySelector('#commentForm')
+    const br = document.querySelector('#formBr')
     const commentLi = document.createElement("li")
     commentLi.innerText = comment.content
-    debugger
-    parent.append(commentLi) 
+    parent.append(commentLi)
+    form.remove()
+    br.remove()
+    
 }
 
 function commentForm(e) {
-    const parent = e.target.parentElement
-    const form = document.createElement("form")
-    form.id = "commentForm"
+    if (document.querySelector('#commentForm')) {
+        console.log('Already created')
+    } else {
+        const parent = e.target.parentElement
+        const form = document.createElement("form")
+        form.id = "commentForm"
+        const br = document.createElement("br")
+        br.id = 'formBr'
+        const x = document.createElement('span')
+        x.id = "formSpan"
+        x.innerText = ' X'
+        const comment = document.createElement("input")
+        comment.setAttribute("type", "text")
+        comment.setAttribute("name", "comment")
+        comment.setAttribute("placeholder", "Add Comment Here");
 
-    const comment = document.createElement("input")
-    comment.setAttribute("type", "text")
-    comment.setAttribute("name", "comment")
-    comment.setAttribute("placeholder", "Add Comment Here");
+        const s = document.createElement('input')
+        s.setAttribute("type", "submit")
+        s.setAttribute("value", "Submit Comment")
+        x.addEventListener('click', function(){
+            br.remove()
+            form.remove()
+        })
+        form.addEventListener('submit', createComment)
 
-    const s = document.createElement('input')
-    s.setAttribute("type", "submit")
-    s.setAttribute("value", "Submit Comment")
-    form.addEventListener('submit', createComment)
 
-    form.append(comment)
-    form.append(s)
-    parent.append(form)
-    const br = document.createElement("br")
-    parent.append(br)
+        form.append(comment)
+        form.append(s)
+        form.append(x)
+        parent.append(form)
+        
+        
+        parent.append(br)
+    }  
 }
