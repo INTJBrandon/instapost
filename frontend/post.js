@@ -56,3 +56,7 @@ function appendPost(post) {
     li.innerText = post.title + " " + post.id
     postsDiv.append(li)
 }
+
+function deletePost() {
+    
+}
