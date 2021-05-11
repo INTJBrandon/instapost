@@ -1,5 +1,5 @@
-postForm.addEventListener('submit', createPost)
+postForm.addEventListener('submit', Post.createPost)
 
-fetchPosts()
+Post.fetchPosts()
 
 
