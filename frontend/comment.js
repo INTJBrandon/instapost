@@ -40,7 +40,7 @@ function createComment(e) {
 
 function appendComment(comment, id){
     const parentId = id.toString()
-    const parent = document.getElementById(parentId).children[2]
+    const parent = document.getElementById(parentId).children[3]
     const form = document.querySelector('#commentForm')
     const br = document.querySelector('#formBr')
     const commentLi = document.createElement("li")
@@ -49,7 +49,7 @@ function appendComment(comment, id){
     button.innerHTML = 'Delete Comment'
     button.addEventListener('click', deleteComment)
     commentLi.innerText = comment.content
-    debugger
+    
     parent.append(commentLi)
     commentLi.append(button)
     form.remove()

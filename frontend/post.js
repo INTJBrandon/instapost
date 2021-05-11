@@ -1,4 +1,10 @@
 const postsDiv = document.querySelector('#posts')
+
+class Post {
+
+
+    
+}
 function fetchPosts() {
     fetch("http://127.0.0.1:3000/posts")
     .then(resp => resp.json())
@@ -8,7 +14,11 @@ function fetchPosts() {
 function appendPosts(posts) {
     for (let post of posts) {
         const li = document.createElement("li")
-        li.innerText = post.title + " "
+        const img = document.createElement("img")
+        img.src = post.img_url
+        img.width = "500"
+        img.height = "600"
+        li.innerText = post.description + " "
         li.id = post.id
         const button = document.createElement("button")
         button.setAttribute("class", "commentButton")
@@ -18,6 +28,7 @@ function appendPosts(posts) {
         dbutton.setAttribute("class", "deleteButton")
         dbutton.innerHTML = "Delete Post"
         dbutton.addEventListener('click', deletePost)
+        li.append(img)
         li.append(button)
         li.append(dbutton)
         postsDiv.append(li)
@@ -57,8 +68,13 @@ function createPost(e) {
 
 function appendPost(post) {
     const li = document.createElement("li")
+    const ul = document.createElement("ul")
+    const img = document.createElement("img")
+    img.src = post.img_url
+    img.width = "500"
+    img.height = "600"
     li.id = post.id
-    li.innerText = post.title + " "
+    li.innerText = post.description + " "
     const button = document.createElement("button")
     button.setAttribute("class", "commentButton")
     button.innerHTML = "Add Comment"
@@ -67,8 +83,10 @@ function appendPost(post) {
     dbutton.setAttribute("class", "deleteButton")
     dbutton.innerHTML = "Delete Post"
     dbutton.addEventListener('click', deletePost)
+    li.append(img)
     li.append(button)
     li.append(dbutton)
+    li.append(ul)
     postsDiv.append(li)
 
 }
