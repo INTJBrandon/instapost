@@ -14,7 +14,12 @@ function appendPosts(posts) {
         button.setAttribute("class", "commentButton")
         button.innerHTML = "Add Comment"
         button.addEventListener('click', commentForm)
+        const dbutton = document.createElement('button')
+        dbutton.setAttribute("class", "deleteButton")
+        dbutton.innerHTML = "Delete Post"
+        dbutton.addEventListener('click', deletePost)
         li.append(button)
+        li.append(dbutton)
         postsDiv.append(li)
         appendComments(post.comments, li)
         
@@ -51,12 +56,44 @@ function createPost(e) {
 
 
 function appendPost(post) {
-    console.log(post)
     const li = document.createElement("li")
-    li.innerText = post.title + " " + post.id
+    li.id = post.id
+    li.innerText = post.title + " "
+    const button = document.createElement("button")
+    button.setAttribute("class", "commentButton")
+    button.innerHTML = "Add Comment"
+    button.addEventListener('click', commentForm)
+    const dbutton = document.createElement('button')
+    dbutton.setAttribute("class", "deleteButton")
+    dbutton.innerHTML = "Delete Post"
+    dbutton.addEventListener('click', deletePost)
+    li.append(button)
+    li.append(dbutton)
     postsDiv.append(li)
+
 }
 
-function deletePost() {
-    
+function deletePost(e) {
+    let post_id = e.target.parentNode.id
+    post_id = post_id.toString()
+    const parent = document.getElementById(post_id)
+
+    const body = {
+        id: post_id
+    }
+
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'content-Type': 'application/json',
+            Accept: 'application/json'
+        },
+        body: JSON.stringify(body)
+    }
+    fetch(`http://127.0.0.1:3000/posts/${post_id}`, options)
+    .then(resp => {
+        parent.remove()
+    })
 }
+
+

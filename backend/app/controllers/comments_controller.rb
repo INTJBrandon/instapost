@@ -12,6 +12,12 @@ class CommentsController < ApplicationController
     end
 
 
+    def destroy
+        comment = Comment.find_by(id: params[:id])
+        comment.destroy
+    end
+
+
 
 
 
