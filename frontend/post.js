@@ -10,6 +10,7 @@ class Post {
     appendPost() {
         const postsDiv = document.querySelector('#posts')
         const div = document.createElement("div")
+        div.setAttribute("class", "postDiv")
         const img = document.createElement("img")
         const p = document.createElement("p")
         const br = document.createElement("br")
@@ -18,19 +19,16 @@ class Post {
         img.height = "600"
         div.id = this.id
         p.innerText = this.description + " "
-        const button = document.createElement("button")
-        button.setAttribute("class", "commentButton")
-        button.innerHTML = "Add Comment"
-        button.addEventListener('click', Comment.commentForm)
-        const dbutton = document.createElement('button')
-        dbutton.setAttribute("class", "deleteButton")
-        dbutton.innerHTML = "Delete Post"
-        dbutton.addEventListener('click', this.deletePost.bind(this))
+        const commentIcon = document.createElement("i")
+        commentIcon.setAttribute("class", "fas fa-plus fa-2x")
+        commentIcon.addEventListener('click', Comment.commentForm)
+        const deleteIcon = document.createElement('i')
+        deleteIcon.setAttribute("class", "fas fa-trash-alt fa-2x")
+        deleteIcon.addEventListener('click', this.deletePost.bind(this))
         div.append(img)
         div.append(br)
-        div.append(button)
-        div.append(dbutton)
-        
+        div.append(commentIcon)
+        div.append(deleteIcon)
         div.append(p)
         postsDiv.append(div)
         Comment.appendComments(this.comments, div) 
